@@ -23,7 +23,7 @@ const rateLimiter=(options)=>
             if(now>resetTime) // reset the count for this ipAddress
             {
                 requestCounts[ipAddress]={ 
-                    count: 1,
+                    count: 0,
                     resetTime: now+windowMs
                 };
             }
