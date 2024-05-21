@@ -6,7 +6,8 @@ app.use(express.json());
 
 const options={
     windowMs: 1*60*1000, 
-    max: 5
+    max: 5,
+    message: "Too many requests from this IP Address, please try again in some time"
 };
 const limiter=rateLimiter(options);
 app.use('/api',limiter);

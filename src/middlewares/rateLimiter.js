@@ -2,7 +2,7 @@ const requestCounts={};
 
 const rateLimiter=(options)=>
 {
-    const { windowMs, max }=options;
+    const { windowMs, max, message }=options;
 
     return (req,res,next)=>
     {
@@ -30,7 +30,7 @@ const rateLimiter=(options)=>
             else if(count>=max)
             {
                 return res.status(429).json({
-                    error: "Too many requests from this IP Address, please try again in some time"
+                    error: message
                 });
             }
 
